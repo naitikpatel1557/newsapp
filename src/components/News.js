@@ -23,7 +23,6 @@ export class News extends Component {
     }
 
     handleNextClick = async() => {
-        console.log("Next");
         
         
         if(this.state.page+1 >= Math.ceil(this.state.totalResults/20)) {
@@ -45,7 +44,6 @@ export class News extends Component {
     }
 
     handlePrevClick = async () => {
-        console.log("Previous");
         let url = `https://newsapi.org/v2/top-headlines?country=us&category=business&apiKey=f73d57001d954a6485fa01a376091876&page=${this.state.page - 1}&pageSize20`;
         let data = await fetch(url);                  //async is used to wait for the fetch to complete
         let parsedData = await data.json();
