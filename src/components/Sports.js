@@ -1,12 +1,12 @@
 import React, { Component } from 'react'
 import NewsItem from './NewsItem';
 import Spinner from './Spinner';
-import PropTypes from 'prop-types'
+
 
 export class News extends Component {
 
-    constructor(props) {
-        super(props);
+    constructor() {
+        super();
         this.state = {
             articles: [],
             loading: false,
@@ -21,14 +21,16 @@ export class News extends Component {
         let data = await fetch(url);                  //async is used to wait for the fetch to complete
         let parsedData = await data.json();
         console.log(parsedData);
-        this.setState({ 
-            articles: parsedData.articles, 
+        this.setState({ articles: parsedData.articles, 
             totalResults: parsedData.totalResults,
-            loading: false
+            loading: false, 
         });
+
+
     }
 
     handleNextClick = async () => {
+
 
         if (!(this.state.page + 1 > Math.ceil(this.state.totalResults / this.props.pageSize))) {
 
