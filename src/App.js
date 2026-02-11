@@ -43,7 +43,7 @@ export class App extends Component {
             element={<Health key="health" headline="Health" pageSize={8} category="health"/>} 
           />
 
-        </Routes>
+        {/* </Routes> */}
       </Router>
     )
   }
