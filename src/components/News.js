@@ -68,14 +68,14 @@ export class News extends Component {
     render() {
         return (
             <div className='container my-3'>
-                <h2 className="text-center">DailyNews - Top Headlines</h2>
+                <h2 className="text-center">Daily {this.props.headline} News - Top Headlines</h2>
                 {this.state.loading && <Spinner />}
 
                 <div className="row">
                     {this.state.articles?.map((element) => {
 
                         return <div className="col-md-3" key={element.url} >
-                            <NewsItem title={element.title ? element.title.slice(0, 50) + "..." : ""} description={element.description ? element.description.slice(0, 90) + "..." : ""} imageUrl={element.urlToImage} newsUrl={element.url}></NewsItem>
+                            <NewsItem title={element.title ? element.title.slice(0, 50) + "..." : ""} description={element.description ? element.description.slice(0, 90) + "..." : ""} imageUrl={element.urlToImage} newsUrl={element.url} author={element.author} publishedAt={element.publishedAt} source={element.source.name}></NewsItem>
                         </div>
                     }
                     )}
