@@ -8,7 +8,7 @@ export class NewsItem extends Component {
         return (
             <div className='container my-3'>
                 <div className="card">
-                    
+
                     <span className="position-absolute top-0 translate-middle badge rounded-pill bg-danger" style={{ left: '80%', zIndex: '3' }}>
                         {source}
                     </span>
