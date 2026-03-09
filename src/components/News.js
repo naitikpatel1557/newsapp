@@ -15,6 +15,8 @@ export class News extends Component {
 
     //Uodate the news
     async updateNews() {
+        this.props.setProgress(10); // Set progress to 10% when the updateNews function is called
+
         const url = `https://newsapi.org/v2/top-headlines?country=us&category=${this.props.category}&apiKey=f73d57001d954a6485fa01a376091876&page=${this.state.page}&pageSize=${this.props.pageSize}`;
         this.setState({ loading: true });                 //Setting loading to true before fetching the data to show the spinner while the data is being fetched
 
@@ -26,6 +28,7 @@ export class News extends Component {
             totalResults: parsedData.totalResults,
             loading: false
         });
+        this.props.setProgress(100); // Set progress to 100% when the news update is complete
     }
 
 
